@@ -63,8 +63,7 @@
                 <div class="d-flex justify-content-between mb-2 pb-2 mt-3 text-sm ">
                     <!-- form check -->
                     <div class="form-check ">
-                        <input class="form-check-input" type="checkbox" name="remember" id="remember" checked
-                            value="1">
+                        <input class="form-check-input bg-warning border-warning" type="checkbox" name="remember" id="remember" checked value="1">
                         <label class="form-check-label" for="remember">@lang('eventmie-pro::em.remember')</label>
                     </div>
                     <!-- forgot password -->
@@ -78,7 +77,7 @@
                         class="fas fa-sign-in-alt"></i></button>
             </form>
             <div class="mt-4">
-                <p class="mb-0">@lang('eventmie-pro::em.donot_account')<a href="{{ route('eventmie.register_show') }}">
+                <p class="mb-0">@lang('eventmie-pro::em.donot_account')<a class="text-danger" href="{{ route('eventmie.register_show') }}">
                         @lang('eventmie-pro::em.register')</a></p>
             </div>
             <div class="mt-3">

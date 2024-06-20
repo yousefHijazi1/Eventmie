@@ -1,6 +1,6 @@
 <?php
 return [
-    /* xxxXXXxxx NO NEED TO TRANSLATE THESE xxxXXXxxx */    
+    /* xxxXXXxxx NO NEED TO TRANSLATE THESE xxxXXXxxx */
     "lang_en"                                => 'English',
     "lang_ar"                                => 'عربى',
     "lang_de"                                => 'Deutsche',
@@ -14,10 +14,10 @@ return [
     "lang_pt"                                => 'português',
     "lang_zh_CN"                             => '中国',
     "lang_zh_TW"                             => '中國',
-    /* xxxXXXxxx NO NEED TO TRANSLATE THESE xxxXXXxxx */    
+    /* xxxXXXxxx NO NEED TO TRANSLATE THESE xxxXXXxxx */
 
 
-    
+
 
     /* ================ Actions ================ */
     'reset'                             => 'Reset',
@@ -306,9 +306,9 @@ return [
 
     'accept_cookie'                     => 'This site uses cookies. By continuing to browse this website without changing the cookie settings of your Internet browser, you agree to our use of cookies. Further information about cookies can be found in our',
 
-    
-    
-    
+
+
+
     'day'                              => 'Day',
     'search_location'                  => 'Search Location',
     'organiser_note_5'                 => 'Organisers can book only their own events for any customer.',
@@ -329,14 +329,14 @@ return [
     'verify_n_checkin'                 => 'Verify & Check-in',
 
     'bank_details'                     => 'Bank Details',
-    'bank_name'                        => 'Bank Name', 
-    'bank_code'                        => 'Bank Code',          
+    'bank_name'                        => 'Bank Name',
+    'bank_code'                        => 'Bank Code',
     'bank_branch_name'                 => 'Bank Branch Name',
     'bank_branch_code'                 => 'Bank Branch Code',
     'bank_account_number'              => 'Bank Account Number',
     'bank_account_name'                => 'Bank Account Name',
     'bank_account_phone'               => 'Bank Account Phone',
-    
+
     'tag'                              => 'Tag',
     'sub_title'                        => 'Sub title',
     'earning'                          => 'Earnings',
@@ -347,7 +347,7 @@ return [
     'page'                             => 'Page',
     'scan'                             => 'Scan',
     'share'                            => 'Share',
-    
+
     'sent'                             => 'Sent',
     'booking_mail'                     => 'Sending booking emails ...',
     'processing'                       => 'Processing ...',
@@ -358,7 +358,7 @@ return [
     'cash_on_arrival'                  => 'Cash on Arrival',
     'cart'                             => 'Cart Total',
     'user_disabled'                    => 'Account temporarily disabled! Contact Support!',
-    
+
     /* Calendar lang start*/
     'january'                           => 'January',
     'february'                          => 'February',
@@ -393,7 +393,7 @@ return [
     'thursday'                          => 'Thursday',
     'friday'                            => 'Friday',
     'saturday'                          => 'Saturday',
-    
+
     'sun'                               => 'Sun',
     'mon'                               => 'Mon',
     'tue'                               => 'Tue',
@@ -401,7 +401,7 @@ return [
     'thu'                               => 'Thu',
     'fri'                               => 'Fri',
     'sat'                               => 'Sat',
-    
+
     'su'                                => 'Su',
     'mo'                                => 'Mo',
     'tu'                                => 'Tu',
@@ -409,7 +409,7 @@ return [
     'th'                                => 'Th',
     'fr'                                => 'Fr',
     'sa'                                => 'Sa',
-    
+
     'am'                                => 'AM',
     'pm'                                => 'PM',
     /* Calendar lang end*/
@@ -602,7 +602,7 @@ return [
     'admin_tax'                         => 'Admin Tax',
     'total_admin_commission'            => 'Total Admin Commission',
     'total_admin_tax'                   => 'Total Admin Tax',
-    
+
     /* v1.6 Lang */
     'booking_cancellation'              => 'Booking Cancellation',
     'calendar'                        => 'Add to Calendar',
@@ -634,7 +634,7 @@ return [
     'please_login_signup'             => 'Please Register or Login to continue',
     'excerpt'                         => 'Excerpt',
     'short_info'                      => 'Short Info',
-    
+
     /* v1.7 lang */
     'customer_limit'          => 'Booking Limit Per Customer',
     'customer_limit_info'     => 'For how many times the same customer can purchase this ticket. (leave blank for unlimited)',
@@ -642,15 +642,15 @@ return [
     'offline_payment_info'    => 'Offline Payment Instructions',
     'offline_payment_info_ie' => 'Instructions to show under Offline Payment Option',
     'expired'                 => 'Expired',
-    
+
     'rsvp'                    => 'R.S.V.P',
-    
+
     'accept_terms'            => 'By clicking "Register", I accept the <a href="'.route('eventmie.page', ['page'=>'terms']).'" target="_blank">Terms of Service</a> and have read the <a href="'.route('eventmie.page', ['page'=>'privacy']).'" target="_blank">Privacy Policy</a>. I agree that '.config('app.name').' may share my information with event organizers.',
     'order_terms'             => 'This order is subject to '.config('app.name').' <a href="'.route('eventmie.page', ['page'=>'terms']).'" target="_blank">Terms of Service</a> and <a href="'.route('eventmie.page', ['page'=>'privacy']).'" target="_blank">Privacy Policy</a>.',
 
     'incorrect_email_password' => 'Incorrect Email or Password',
-    
-    // v1.8 
+
+    // v1.8
     'unauthenticated'          => 'Unauthenticated',
     'manage_venues'            => 'Manage Venues',
     'venues'                   => 'Venues',
@@ -689,7 +689,7 @@ return [
     'number_of_guests'         => 'Number of Guests',
     'mention_query'            => 'Write about your query',
     'organizer_contact_back'   => 'Thank you for your message, we will get back to you shortly',
-    
+
     // v2.0
     'venue_title'                       => 'Venue Title',
     'venue_url'                         => 'Venue URL',
@@ -744,6 +744,6 @@ return [
     'show_tax_info'                     => 'Show Tax Info',
     'hide_tax_info'                     => 'Hide Tax Info',
     'one_t_event'                       => 'Onetime',
-    
-    
+
+
 ];

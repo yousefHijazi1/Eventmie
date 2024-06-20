@@ -14,13 +14,13 @@ Vue.component('VueMatchHeights', require('vue-match-heights').default);
 
 
 /**
- * Local Components 
+ * Local Components
  */
 import Events from './components/Events';
 
 
 /**
- * Local Vue Routes 
+ * Local Vue Routes
  */
 const routes = new VueRouter({
     mode: 'history',
@@ -42,7 +42,7 @@ const routes = new VueRouter({
                 state: route.query.state,
                 country: route.query.country,
                 date_format: date_format
-                
+
             }),
             name: 'events',
             component: Events,
@@ -59,7 +59,7 @@ const routes = new VueRouter({
  *
  * make sure to use window.app to make new Vue instance
  * so that we can access vue instance from anywhere
- * e.g interceptors 
+ * e.g interceptors
  */
 window.app = new Vue({
     el: '#eventmie_app',

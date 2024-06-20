@@ -6,7 +6,7 @@
 
     <a class="nav-link dropdown-toggle" href="#" id="blogDropdown" role="button" data-bs-toggle="dropdown"
         aria-expanded="false" v-pre>
-        <span class="position-relative btn btn-sm btn-primary badge">
+        <span class="position-relative btn btn-sm btn-warning badge">
             <i class="fas fa-bell text-white"> </i>
             @if ($data['total_notify'] > 0)
                 <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger rounded-circle"></span>

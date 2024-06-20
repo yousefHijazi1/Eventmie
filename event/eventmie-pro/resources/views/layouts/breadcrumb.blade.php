@@ -8,7 +8,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item ">
-                            <a href="{{ url('/') }}"><i class="fas fa-home text-white"></i></a>
+                            <a href="https://ameerdabaja.com/"><i class="fas fa-home text-white"></i></a>
                         </li>
                         @php
                             $i_count = 1;

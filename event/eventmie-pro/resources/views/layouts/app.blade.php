@@ -8,8 +8,8 @@
     @include('eventmie::layouts.favicon')
 
     @include('eventmie::layouts.include_css')
-    
 
+    
     @yield('stylesheet')
 </head>
 

@@ -3,7 +3,7 @@
 @section('content')
     <!--BANNER-->
     <section>
-        <div style="background-color: #f7bd03">
+        <div style="background: linear-gradient(to bottom, black, #f7bd03);">
             <div class="login-wrapper">
                 <div class="container">
                     <div class="row">

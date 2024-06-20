@@ -55,14 +55,15 @@
                                 @include('eventmie::layouts.member_header')
                             @endguest
 
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a class="nav-link" href="{{ route('eventmie.venues.index') }}"><i
                                         class="fas fa-map-location"></i> @lang('eventmie-pro::em.venues')</a>
-                            </li>
+                            </li> --}}
 
                             {{-- Common Header --}}
                             {{-- categories menu items --}}
-                            @php $categoriesMenu = categoriesMenu() @endphp
+
+                            {{-- @php $categoriesMenu = categoriesMenu() @endphp
                             @if (!empty($categoriesMenu))
 
                                 <li class="nav-item dropdown ">
@@ -84,7 +85,7 @@
                                     </ul>
                                 </li>
 
-                            @endif
+                            @endif --}}
 
                             {{-- additional header menu items --}}
                             @php $headerMenuItems = headerMenu() @endphp

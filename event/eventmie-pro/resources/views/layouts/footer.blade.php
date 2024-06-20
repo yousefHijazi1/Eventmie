@@ -113,7 +113,7 @@
                 <p class="fs-6 text-gray-500 pb-3">
                     {{-- <span>©</span> {{ date('Y') }} --}}
                         {{-- <a href="{{ eventmie_url() }}">{{ setting('site.site_name') ? setting('site.site_name') : config('app.name') }}</a><br> --}}
-                        <a style="color: aliceblue" href="https://ameerdabaja.com/">Copyright © {{ date('Y') }} <span style="color: #f7bd03">@ameerdabaja.com</span>     All rights reserved</a><br>
+                        <a style="color: aliceblue" href="https://ameerdabaja.com/">Copyright © {{ date('Y') }} <span style="color: #f7bd03">@ameerdabaja.com</span> All rights reserved</a><br>
 
                     @if (!empty(setting('site.site_footer')))
                         {!! setting('site.site_footer') !!}
