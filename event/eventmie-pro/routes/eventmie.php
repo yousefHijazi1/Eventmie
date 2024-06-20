@@ -304,7 +304,6 @@ Route::group([
                 $user = \Classiebit\Eventmie\Models\User::find($id);
                 $user->unreadNotifications->where('n_type', $n_type)->markAsRead();
             }
-
             // Admin: redirect to admin-panel
             if(\Auth::user()->hasRole('admin')) {
                 if($n_type == "user")

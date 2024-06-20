@@ -23,7 +23,7 @@ class DashboardController extends VoyagerBaseController
     {
         $this->middleware(['admin.user']);
 
-        $this->event         = new Event; 
+        $this->event         = new Event;
         $this->booking       = new Booking;
         $this->notification  = new Notification;
         $this->user          = new User;
@@ -48,15 +48,15 @@ class DashboardController extends VoyagerBaseController
 
     }
 
-    
+
     /**
      * sale report of particular event
      */
 
     public function export_sales_report(Request $request)
-    {  
+    {
         return $this->dashboard_service->export_sales_report($request);
-    } 
+    }
 
     /**
      *  Event total by sales price
@@ -78,6 +78,6 @@ class DashboardController extends VoyagerBaseController
         return $this->dashboard_service->getEvent($request);
     }
 
-    
-    
-}    
+
+
+}

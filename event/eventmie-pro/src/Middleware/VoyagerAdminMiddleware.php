@@ -21,7 +21,7 @@ class VoyagerAdminMiddleware
 
         if (!Auth::guest()) {
             $user = Auth::user();
-            
+
              // if user lang
             if(session('my_lang'))
                 \App::setLocale(session('my_lang'));
