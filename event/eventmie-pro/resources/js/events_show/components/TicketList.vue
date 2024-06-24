@@ -2,7 +2,7 @@
     <div class="custom_model">
         <div class="modal show" v-if="openModal">
             <div class="modal-dialog modal-xl model-extra-large">
-                
+
                 <div class="modal-content">
                     <div class="modal-header text-center border-0">
                         <div class="modal-title w-100">
@@ -29,21 +29,21 @@
 
                         <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close" @click="close()"></button>
                     </div>
-                    
+
                     <div class="modal-body">
                         <form ref="form" @submit.prevent="validateForm" method="POST" >
-                            
+
                             <input type="hidden" class="form-control" name="event_id" :value="tickets[0].event_id" >
                             <input type="hidden" class="form-control" name="booking_date" :value="serverTimezone(booking_date+' '+start_time, 'dddd LL HH:mm a').format('YYYY-MM-DD')" >
 
-                            <input type="hidden" class="form-control" name="booking_end_date" 
-                                :value="(booking_end_date != null && typeof(booking_end_date) != 'undefined' && booking_end_date != false) ? 
-                                serverTimezone(moment(booking_date).format('dddd LL')+' '+end_time, 'dddd LL HH:mm a').locale('en').format('YYYY-MM-DD') : null" 
+                            <input type="hidden" class="form-control" name="booking_end_date"
+                                :value="(booking_end_date != null && typeof(booking_end_date) != 'undefined' && booking_end_date != false) ?
+                                serverTimezone(moment(booking_date).format('dddd LL')+' '+end_time, 'dddd LL HH:mm a').locale('en').format('YYYY-MM-DD') : null"
                                 v-if="!event.merge_schedule"
                             >
-                            <input type="hidden" class="form-control" name="booking_end_date" 
-                                :value="(booking_end_date != null && typeof(booking_end_date) != 'undefined' && booking_end_date != false) ? 
-                                serverTimezone(moment(booking_end_date).format('dddd LL')+' '+end_time, 'dddd LL HH:mm a').locale('en').format('YYYY-MM-DD') : null" 
+                            <input type="hidden" class="form-control" name="booking_end_date"
+                                :value="(booking_end_date != null && typeof(booking_end_date) != 'undefined' && booking_end_date != false) ?
+                                serverTimezone(moment(booking_end_date).format('dddd LL')+' '+end_time, 'dddd LL HH:mm a').locale('en').format('YYYY-MM-DD') : null"
                                 v-else
                             >
 
@@ -58,15 +58,15 @@
                                     <div class="col-md-4 mb-3">
                                         <div v-if="is_customer <= 0">
                                             <label class="form-label h6" for="customer_id">{{ trans('em.select_customer') }}</label>
-                                            <v-select 
-                                                label="name" 
-                                                class="form-control px-0 py-0 border-0 mb-2" 
+                                            <v-select
+                                                label="name"
+                                                class="form-control px-0 py-0 border-0 mb-2"
                                                 :placeholder="trans('em.search_customer_email')"
-                                                v-model="customer" 
-                                                :required="!customer" 
-                                                :filterable="false" 
-                                                :options="options" 
-                                                @search="onSearch" 
+                                                v-model="customer"
+                                                :required="!customer"
+                                                :filterable="false"
+                                                :options="options"
+                                                @search="onSearch"
                                             ><div slot="no-options">{{ trans('em.customer_not_found') }}</div></v-select>
                                             <div class="invalid-feedback danger" v-show="errors.has('customer_id')">{{ errors.first('customer_id') }}</div>
                                         </div>
@@ -79,54 +79,54 @@
                                         <p class="mb-2 h6">{{ trans('em.select_tickets') }}</p>
                                         <ul class="list-group">
                                             <li class="list-group-item mb-3 rounded border-2"
-                                                v-for="(item, index) in tickets" 
+                                                v-for="(item, index) in tickets"
                                                 :key = "index"
                                             >
                                                 <input type="hidden" class="formbh g-control" name="ticket_id[]" :value="item.id" >
                                                 <input type="hidden" class="form-control" name="ticket_title[]" :value="item.title" >
-                                                
+
                                                 <div class="d-flex justify-content-between lh-condensed d-flex-wrap">
                                                     <div class="w-40">
                                                         <h6 class="my-0"><strong>{{ item.title }}</strong></h6>
                                                         <p class="my-0 h6">{{ item.price > 0 ? item.price : '0.00' }} <small>{{currency}}</small></p>
                                                     </div>
-                                                    
+
                                                     <div class="w-20">
                                                         <!-- Live stock alert  -->
                                                         <!-- if any booked tickets -->
                                                         <div v-if='typeof(booked_tickets[item.id+"-"+booked_date_server]) != "undefined"
                                                         '>
-                                                            
-                                                            <select class="form-select border-2 form-select-lg" 
-                                                                name="quantity[]" 
+
+                                                            <select class="form-select border-2 form-select-lg"
+                                                                name="quantity[]"
                                                                 v-model="quantity[index]"
                                                                 v-if='(item.customer_limit != null ? item.customer_limit :  max_ticket_qty) <= 100'
                                                             >
                                                                 <option value="0" selected>0</option>
                                                                 <option :key="ind"
-                                                                    v-if="booked_tickets[item.id+'-'+booked_date_server].total_vacant <= (item.customer_limit != null ? item.customer_limit :  max_ticket_qty)" 
-                                                                    :value="itm" v-for=" (itm, ind) in booked_tickets[item.id+'-'+booked_date_server].total_vacant"  
+                                                                    v-if="booked_tickets[item.id+'-'+booked_date_server].total_vacant <= (item.customer_limit != null ? item.customer_limit :  max_ticket_qty)"
+                                                                    :value="itm" v-for=" (itm, ind) in booked_tickets[item.id+'-'+booked_date_server].total_vacant"
                                                                 >{{itm }}</option>
-                                                                <option v-else :value="itm" v-for=" (itm, ind) in (item.quantity > (item.customer_limit != null ? item.customer_limit :  max_ticket_qty) ? parseInt(item.customer_limit != null ? item.customer_limit :  max_ticket_qty) : parseInt(item.quantity))"  :key="ind">{{itm }}</option>
+                                                                <option v-else :value="itm" v-for=" (itm, ind) in (item.quantity > (item.customer_limit != null ? item.customer_limit :  max_ticket_qty) ? parseInt(item.customer_limit != null ? item.customer_limit :  max_ticket_qty) : parseInt(item.quantity))"  :key="ind" >{{itm }}</option>
                                                             </select>
-                                                            <input v-else type="number" name="quantity[]" 
-                                                                v-model="quantity[index]" value="0" class="form-control form-input-sm" 
+                                                            <input v-else type="number" name="quantity[]"
+                                                                v-model="quantity[index]" value="0" class="form-control form-input-sm"
                                                                 min="0" :max="booked_tickets[item.id+'-'+booked_date_server].total_vacant < (item.customer_limit != null ? item.customer_limit :  max_ticket_qty) ? booked_tickets[item.id+'-'+booked_date_server].total_vacant : (item.customer_limit != null ? item.customer_limit :  max_ticket_qty)"
                                                             >
                                                             <!-- Show if vacant less than max_ticket_qty -->
-                                                            <p class="text-muted" 
+                                                            <p class="text-muted"
                                                                 v-if="booked_tickets[item.id+'-'+booked_date_server].total_vacant < (item.customer_limit != null ? item.customer_limit :  max_ticket_qty) && booked_tickets[item.id+'-'+booked_date_server].total_vacant > 0">
-                                                                <small><i class="fas fa-exclamation"></i> {{ trans('em.vacant') }} 
+                                                                <small><i class="fas fa-exclamation"></i> {{ trans('em.vacant') }}
                                                                 {{ booked_tickets[item.id+'-'+booked_date_server].total_vacant }}</small>
                                                             </p>
-                                                            <p class="text-danger" 
+                                                            <p class="text-danger"
                                                                 v-if="booked_tickets[item.id+'-'+booked_date_server].total_vacant < (item.customer_limit != null ? item.customer_limit :  max_ticket_qty) && booked_tickets[item.id+'-'+booked_date_server].total_vacant <= 0">
                                                                 <small><i class="fas fa-times-circle"></i>  {{ trans('em.vacant') }} 0</small>
                                                             </p>
                                                         </div>
                                                         <div v-else>
-                                                            <select class="form-select border-2 form-select-lg" 
-                                                                name="quantity[]" 
+                                                            <select class="form-select border-2 form-select-lg"
+                                                                name="quantity[]"
                                                                 v-model="quantity[index]"
                                                                 v-if="(item.customer_limit != null ? item.customer_limit :  max_ticket_qty) <= 100"
                                                             >
@@ -135,12 +135,12 @@
                                                             </select>
                                                             <input v-else type="number" name="quantity[]" v-model="quantity[index]" value="0" class="form-control form-input-sm" min="0" :max="item.quantity > (item.customer_limit != null ? item.customer_limit :  max_ticket_qty) ? parseInt((item.customer_limit != null ? item.customer_limit :  max_ticket_qty)) : parseInt(item.quantity)">
                                                             <!-- Show if vacant less than max_ticket_qty -->
-                                                            <p class="text-primary h6" 
+                                                            <p class="text-primary h6"
                                                                 v-if="item.quantity < (item.customer_limit != null ? item.customer_limit :  max_ticket_qty) && item.quantity > 0">
-                                                                <small><i class="fas fa-exclamation"></i> {{ trans('em.vacant') }} 
+                                                                <small><i class="fas fa-exclamation"></i> {{ trans('em.vacant') }}
                                                                 {{ item.quantity }}</small>
                                                             </p>
-                                                            <p class="text-danger" 
+                                                            <p class="text-danger"
                                                                 v-if="item.quantity <= 0">
                                                                 <small><i class="fas fa-times-circle"></i>  {{ trans('em.vacant') }} 0</small>
                                                             </p>
@@ -160,7 +160,7 @@
                                                 <div class="break-flex w-30 w-m-100">
                                                     <ul class="list-group list-group-flush my-2" v-if="quantity[index] > 0 && item.price > 0 && item.taxes.length > 0">
                                                         <li class="list-group-item small px-2 p-1 text-muted" v-for="(tax, index1) in item.taxes" :key ="index1">
-                                                            <span>{{ tax.title }} 
+                                                            <span>{{ tax.title }}
                                                                 <small>{{ total_price[index] > 0 ? countTax(item.price, tax.rate, tax.rate_type, tax.net_price, quantity[index]) : 0 }}</small>
                                                             </span>
                                                         </li>
@@ -175,7 +175,7 @@
                                                     </a>
                                                     <p class="ticket-info small text-muted" v-if="ticket_info">{{ item.description }}</p>
                                                 </div>
-                                                
+
                                             </li>
                                         </ul>
                                     </div>
@@ -225,7 +225,7 @@
 
                                             <!-- Paid -->
                                             <div class="d-block my-3 pl-3" v-else>
-                                                
+
                                                 <!-- For Organizer & Customer -->
                                                 <div class="radio-inline" v-if="is_admin <= 0 && is_paypal > 0">
                                                     <input type="radio" class="custom-control-input" id="payment_method_paypal" name="payment_method" v-model="payment_method" value="1" >
@@ -236,17 +236,17 @@
                                                     <input type="radio" class="custom-control-input" id="payment_method_usaepay" name="payment_method" v-model="payment_method" value="9" >
                                                     <label class="custom-control-label" for="payment_method_usaepay"> &nbsp;<i class="fa-regular fa-credit-card"></i> USAePay</label>
                                                 </div>
-                                            
-        
+
+
 
                                                 <!-- For Admin & Organizer & Customer -->
-                                                <div class="radio-inline" 
+                                                <div class="radio-inline"
                                                     v-if="(is_organiser > 0 && is_offline_payment_organizer > 0) || (is_customer > 0 && is_offline_payment_customer > 0) || (is_admin > 0)">
-                                                    
+
                                                     <input type="radio" class="custom-control-input" id="payment_method_offline" name="payment_method" v-model="payment_method" value="offline">
 
-                                                    <label class="custom-control-label" for="payment_method_offline"> 
-                                                        &nbsp;<i class="fas fa-suitcase-rolling"></i> {{ trans('em.offline') }} 
+                                                    <label class="custom-control-label" for="payment_method_offline">
+                                                        &nbsp;<i class="fas fa-suitcase-rolling"></i> {{ trans('em.offline') }}
                                                         <small>({{ trans('em.cash_on_arrival') }})</small>
                                                     </label>
 
@@ -255,9 +255,9 @@
                                                 <p v-if="payment_method == 'offline'" class="text-dark h6"><strong>{{ trans('em.offline_payment_info') }}: </strong><small v-html="event.offline_payment_info"></small></p>
 
                                                 <p class="text-mute h6 mt-5" v-html="trans('em.order_terms')"></p>
-                                                
+
                                             </div>
-                                        </div>    
+                                        </div>
                                     </div>
                                     <USAePay v-if="payment_method == 9"/>
                                     <div class="col-12 mt-2 pb-4">
@@ -281,11 +281,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                             </div>
 
                         </form>
-                        
+
                     </div>
                 </div>
             </div>
@@ -302,7 +302,7 @@ import _ from 'lodash';
 import USAePay from './USAePay.vue';
 
 export default {
-    
+
     mixins:[
         mixinsFilters
     ],
@@ -311,10 +311,10 @@ export default {
         USAePay,
     },
     props : [
-        'tickets', 
-        'max_ticket_qty', 
-        'event', 
-        'currency', 
+        'tickets',
+        'max_ticket_qty',
+        'event',
+        'currency',
         'login_user_id',
         'is_admin',
         'is_organiser',
@@ -329,16 +329,16 @@ export default {
     data() {
         return {
             openModal           : false,
-            ticket_info         : false,    
+            ticket_info         : false,
             moment              : moment,
             quantity            : [1],
             price               : null,
             total_price         : [],
             customer_id         : 0,
-            total               : 0,   
+            total               : 0,
             disable             : false,
-            payment_method      : 'offline',   
-            
+            payment_method      : 'offline',
+
             // customers options
             options             : [],
             //selected customer
@@ -356,17 +356,17 @@ export default {
         // get global variables
         ...mapState( ['booking_date', 'start_time', 'end_time', 'booking_end_date', 'booked_date_server']),
     },
-   
+
     methods: {
         // update global variables
         ...mapMutations(['add', 'update']),
 
         // reset form and close modal
-        close: function () {    
+        close: function () {
             this.price          = null;
             this.quantity       = [];
             this.total_price    = [];
-            
+
             this.add({
                 booking_date        : null,
                 booked_date_server  : null,
@@ -374,8 +374,8 @@ export default {
                 start_time          : null,
                 end_time            : null,
             })
-            
-            
+
+
             this.openModal      = false;
         },
 
@@ -388,68 +388,67 @@ export default {
 
             let post_url = route('eventmie.bookings_book_tickets');
             let post_data = new FormData(this.$refs.form);
-            
+
             // axios post request
             axios.post(post_url, post_data)
             .then(res => {
-                
+
                 if(res.data.status && res.data.message != ''  && typeof(res.data.message) != "undefined") {
-                   
+
                     // hide loader
                     Swal.hideLoading();
 
                     // close popup
                     this.close();
                     this.showNotification('success', res.data.message);
-                    
+
                 }
                 else if(!res.data.status && res.data.message != '' && res.data.url != ''  && typeof(res.data.url) != "undefined"){
-                    
+
                     // hide loader
                     Swal.hideLoading();
-                    
+
                     // close popup
                     this.close();
                     this.showNotification('error', res.data.message);
-                    
+
                     setTimeout(() => {
-                        window.location.href = res.data.url;    
+                        window.location.href = res.data.url;
                     }, 1000);
                 }
 
                 if(res.data.url != '' && res.data.status  && typeof(res.data.url) != "undefined") {
-                    
+
                     // hide loader
                     Swal.hideLoading();
 
                     setTimeout(() => {
-                        window.location.href = res.data.url;    
+                        window.location.href = res.data.url;
                     }, 1000);
                 }
 
                 if(!res.data.status && res.data.message != ''  && typeof(res.data.message) != "undefined") {
-                   
+
                     // hide loader
                     Swal.hideLoading();
 
                     // close popup
                     this.close();
                     this.showNotification('error', res.data.message);
-                    
-                }
 
+                }
             })
             .catch(error => {
                 this.disable = false;
                 let serrors = Vue.helpers.axiosErrors(error);
                 if (serrors.length) {
-                    
+
                     this.serverValidate(serrors);
-                    
+
                 }
             });
         },
-        
+
 
         // validate data on form submit
         validateForm(e) {
@@ -472,28 +471,28 @@ export default {
             });
         },
 
-        
+
         // count total tax
         countTax(price, tax, rate_type, net_price, quantity) {
-            
+
             price           = parseFloat(price).toFixed(2);
             tax             = parseFloat(tax).toFixed(2);
             var total_tax   = parseFloat(quantity * tax).toFixed(2);
-            
-            
+
+
                 // in case of percentage
                 if(rate_type == 'percent')
                 {
                     if(isNaN((price * total_tax)/100))
                         return 0;
-                    
-                    total_tax = (parseFloat((price*total_tax)/100)).toFixed(2); 
+
+                    total_tax = (parseFloat((price*total_tax)/100)).toFixed(2);
 
                     if(net_price == 'excluding')
                         return total_tax+' '+this.currency+' ('+tax+'%'+' '+trans('em.exclusive')+')';
                     else
                         return total_tax+' '+this.currency+' ('+tax+'%'+' '+trans('em.inclusive')+')';
-                }    
+                }
 
                 // for fixed tax
                 if(rate_type == 'fixed')
@@ -502,9 +501,9 @@ export default {
                         return total_tax+' '+this.currency+' ('+tax+' '+this.currency+' '+trans('em.exclusive')+')';
                     else
                         return total_tax+' '+this.currency+' ('+tax+' '+this.currency+' '+trans('em.inclusive')+')';
-                }        
-                
-            return 0;        
+                }
+
+            return 0;
         },
 
         // count total price
@@ -517,7 +516,7 @@ export default {
                 this.quantity.forEach(function(value, key) {
                     total_tax               = 0;
                     this.total_price[key]   = [];
-                    
+
                     amount                  = (parseFloat(value * this.tickets[key].price)).toFixed(2);
 
                     // when have no taxes set set total_price with actual ammount without taxes
@@ -527,7 +526,7 @@ export default {
 
                             if(Object.keys(v).length <= 0);
                                 this.total_price[key] = amount;
-                                
+
                         }.bind(this))
                     }
                     if(this.tickets[key].taxes.length > 0 && amount > 0) {
@@ -540,7 +539,7 @@ export default {
                                 if(tax_v.net_price == 'excluding')
                                 {
                                     tax = isNaN((amount * tax_v.rate)/100) ? 0 : (parseFloat((amount*tax_v.rate)/100)).toFixed(2);
-                                
+
                                     total_tax   =  parseFloat(total_tax) + parseFloat(tax);
                                 }
                             }
@@ -549,18 +548,18 @@ export default {
                             if(tax_v.rate_type == 'fixed')
                             {
                                 tax   = parseFloat(value *tax_v.rate);
-                                
+
                                 // // in case of excluding
                                 if(tax_v.net_price == 'excluding')
                                     total_tax   = parseFloat(total_tax) + parseFloat(tax);
 
                             }
-                            
-                        }.bind(this))    
+
+                        }.bind(this))
                     }
-                    
+
                     this.total_price[key] = (parseFloat(amount) + parseFloat(total_tax)).toFixed(2);
-                    
+
                 }.bind(this));
             }
         },
@@ -572,7 +571,7 @@ export default {
         setDefaultQuantity() {
             // only set default value once
             var _this   = this;
-            var promise = new Promise(function(resolve, reject) { 
+            var promise = new Promise(function(resolve, reject) {
                 // only set default value once
                 if(_this.quantity.length == 1) {
                     _this.tickets.forEach(function(value, key) {
@@ -580,18 +579,18 @@ export default {
                             _this.quantity[key] = 0;
                         else
                             _this.quantity[key] = 0;
-                            
+
                     }.bind());
                 }
                 resolve(true);
-            }); 
+            });
 
             promise.then(function(successMessage) {
                 _this.totalPrice();
                 _this.orderTotal();
-            }, function(errorMessage) { 
-                
-            }); 
+            }, function(errorMessage) {
+
+            });
         },
 
         // count prise all booked tickets
@@ -600,14 +599,14 @@ export default {
             if(Object.keys(this.total_price).length > 0)
             {
                 this.total_price.forEach(function(value, key){
-                    
+
                     this.total = (parseFloat(this.total) + parseFloat(value)).toFixed(2);
-                    
+
                 }.bind(this))
 
                 return this.total;
             }
-            return 0;    
+            return 0;
         },
 
         // total booked tickets
@@ -622,7 +621,7 @@ export default {
 
                 return total;
             }
-            return 0;    
+            return 0;
         },
 
         defaultPaymentMethod() {
@@ -647,21 +646,21 @@ export default {
             axios.post(postUrl,{
                 'search' :search,
             }).then(res => {
-                
-                var promise = new Promise(function(resolve, reject) { 
-                    
+
+                var promise = new Promise(function(resolve, reject) {
+
                     _this.options = res.data.customers;
-                    
+
                     resolve(true);
-                }) 
-                
-                promise 
-                    .then(function(successMessage) { 
+                })
+
+                promise
+                    .then(function(successMessage) {
                         loading(false);
-                    }, function(errorMessage) { 
-                    //error handler function is invoked 
-                        console.log(errorMessage); 
-                    }) 
+                    }, function(errorMessage) {
+                    //error handler function is invoked
+                        console.log(errorMessage);
+                    })
             })
             .catch(error => {
                 let serrors = Vue.helpers.axiosErrors(error);
@@ -670,7 +669,7 @@ export default {
                 }
             });
         },
-        
+
         // v-select methods
         onSearch(search, loading) {
             loading(true);
@@ -679,12 +678,12 @@ export default {
 
         // v-select methods
         search: _.debounce((loading, search, vm) => {
-            
+
             if(vm.validateEmail(search))
                 vm.getCustomers(loading, search);
             else
-                loading(false);    
-            
+                loading(false);
+
         }, 350),
 
         validateEmail(email) {
@@ -709,11 +708,11 @@ export default {
             this.orderTotal();
         },
 
-        // active when customer search 
+        // active when customer search
         customer: function () {
             this.customer_id = this.customer != null ?  this.customer.id : null;
         },
-    
+
     },
 
     mounted() {

@@ -30,7 +30,7 @@
                             alt="{{ setting('site.site_name') }}" style="height:50px;" />
                         <div class="my-2">
                             <p class="py-0 my-0 l-height site-name">
-                                &nbsp;&nbsp;{{ setting('site.site_name') }}
+                                {{-- &nbsp;&nbsp;{{ setting('site.site_name') }} --}}
                             </p>
                             <p class="py-0 my-0 site-slogan">
                                 &nbsp;&nbsp;{{ setting('site.site_slogan') }}

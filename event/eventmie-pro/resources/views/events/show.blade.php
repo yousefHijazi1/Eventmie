@@ -36,19 +36,19 @@
                                             @lang('eventmie-pro::em.online_event')</span>
                                     @endif
 
-                                    <span class="badge bg-primary text-white">{{ $category['name'] }}</span>
+                                    <span class="badge bg-warning text-white">{{ $category['name'] }}</span>
 
                                     @if (!empty($free_tickets))
-                                        <span class="badge bg-primary text-white">@lang('eventmie-pro::em.free_tickets')</span>
+                                        <span class="badge bg-warning text-white">@lang('eventmie-pro::em.free_tickets')</span>
                                     @endif
 
                                     @if ($event->repetitive)
                                         @if ($event->repetitive_type == 1)
-                                            <span class="badge bg-primary text-white">@lang('eventmie-pro::em.repetitive_daily_event')</span>
+                                            <span class="badge bg-warning text-white">@lang('eventmie-pro::em.repetitive_daily_event')</span>
                                         @elseif($event->repetitive_type == 2)
-                                            <span class="badge bg-primary text-white">@lang('eventmie-pro::em.repetitive_weekly_event')</span>
+                                            <span class="badge bg-warning text-white">@lang('eventmie-pro::em.repetitive_weekly_event')</span>
                                         @elseif($event->repetitive_type == 3)
-                                            <span class="badge bg-primary text-white">@lang('eventmie-pro::em.repetitive_monthly_event')</span>
+                                            <span class="badge bg-warning text-white">@lang('eventmie-pro::em.repetitive_monthly_event')</span>
                                         @endif
                                     @endif
 
@@ -57,32 +57,32 @@
                                     @endif
                                 </p>
                             </div>
-                            <div class="card-footer bg-gradient">
+                            <div class="card-footer bg-warning">
                                 <div class="text-white">
                                     <span><strong>@lang('eventmie-pro::em.share_event') &nbsp;</strong></span>
-                                    <a class="me-1 text-white  badge text-bg-primary" target="_blank"
+                                    <a class="me-1 text-white  badge text-bg-secondary" target="_blank"
                                         href="https://www.facebook.com/sharer/sharer.php?u={{ url()->current() }}">
                                         <i class="fab fa-facebook"></i>
                                     </a>
-                                    <a class="me-1 text-white  badge text-bg-primary" target="_blank"
+                                    <a class="me-1 text-white  badge text-bg-secondary" target="_blank"
                                         href="https://twitter.com/intent/tweet?text={{ urlencode($event->title) }}&url={{ url()->current() }}">
 
                                         <i class="fab fa-twitter"></i>
                                     </a>
-                                    <a class="me-1 text-white  badge text-bg-primary" target="_blank"
+                                    <a class="me-1 text-white  badge text-bg-secondary" target="_blank"
                                         href="http://www.linkedin.com/shareArticle?mini=true&url={{ url()->current() }}&title={{ urlencode($event->title) }}">
                                         <i class="fab fa-linkedin"></i>
                                     </a>
-                                    <a class="me-1 text-white  badge text-bg-primary" target="_blank"
+                                    <a class="me-1 text-white  badge text-bg-secondary" target="_blank"
                                         href="https://wa.me/?text={{ url()->current() }}">
                                         <i class="fab fa-whatsapp"></i>
                                     </a>
-                                    <a class="me-1 text-white  badge text-bg-primary" target="_blank"
+                                    <a class="me-1 text-white  badge text-bg-secondary" target="_blank"
                                         href="https://www.reddit.com/submit?title={{ urlencode($event->title) }}&url={{ url()->current() }}">
                                         <i class="fab fa-reddit"></i>
                                     </a>
 
-                                    <a class="me-1 text-white  badge text-bg-primary" href="javascript:void(0)"
+                                    <a class="me-1 text-white  badge text-bg-secondary" href="javascript:void(0)"
                                         onclick="copyToClipboard()"><i class="fas fa-link"></i></a>
 
                                 </div>
@@ -281,7 +281,7 @@
                         <div class="card mb-4">
                             <div class="card-body p-4">
                                 <div class="d-grid">
-                                    <a class="btn btn-primary btn-lg " href="#buy-tickets">
+                                    <a class="btn btn-warning btn-lg " href="#buy-tickets">
                                         <i class="fas fa-ticket-alt"></i>
                                         @lang('eventmie-pro::em.get_tickets')
                                     </a>

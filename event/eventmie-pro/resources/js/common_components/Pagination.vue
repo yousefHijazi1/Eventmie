@@ -13,15 +13,15 @@
         </ul>
 
         <ul class="pagination d-flex flex-wrap">
-          
+
             <li class="page-item" v-for="(page, index) in pagination.links" :key="index" >
                 <router-link v-if="!isNaN(page.label)" class="page-link" :class="{ 'active': page.active }" :to="{ path: path, query: query({ page: page.label })}" >{{ page.label }} </router-link>
             </li>
-            
+
         </ul>
 
         <ul class="pagination">
-             
+
             <!-- Last & Next Page -->
             <li class="page-item">
                 <router-link :class="'page-link pagination-next'" :to="{ path: path, query: query({ page: pagination.current_page + 1 })}" v-if="pagination.current_page < pagination.last_page"><span aria-hidden="true">{{ trans('em.next') }} <i class="fa-solid fa-angle-right"></i></span></router-link>
@@ -54,7 +54,7 @@ export default {
             // get page from route
             if(typeof this.page === "undefined")
                 return 1;
-            
+
             return this.page;
         },
     },
