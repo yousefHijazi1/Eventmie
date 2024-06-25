@@ -9,7 +9,7 @@
                 </a>
 
                 <!-- repetitive events who Upcoming  -->
-                <span class="d-inline-flex badge bg-primary position-absolute top-0 ms-1 mt-2 start-0">
+                <span class="d-inline-flex badge bg-warning position-absolute top-0 ms-1 mt-2 start-0">
                     {{ changeDateFormat(userTimezone(event.start_date+' '+event.start_time, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD'), "YYYY-MM-DD") }}
                 </span>
 

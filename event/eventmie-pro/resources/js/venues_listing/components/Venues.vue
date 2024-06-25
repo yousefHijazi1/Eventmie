@@ -6,7 +6,7 @@
                 <div class="col-12">
                     <div class="d-flex justify-content-between align-items-center">
                         <h4 class="mb-0">
-                            <button type="button" class="btn btn-outline-primary btn-sm" @click="filter_toggle = !filter_toggle"><i class="fas fa-bars"></i></button>
+                            <button type="button" class="btn btn-outline-warning btn-sm" @click="filter_toggle = !filter_toggle"><i class="fas fa-bars"></i></button>
                             {{ trans('em.filters') }}
                         </h4>
 
@@ -45,7 +45,7 @@
             </div>
 
             <div class="row mt-3">
-                <div class="col-12"> 
+                <div class="col-12">
                     <venue-listing :venues="venues" :currency="currency" :date_format="date_format"></venue-listing>
                     <div class="row" v-if="venues.length > 0">
                         <div class="col-12">
@@ -53,11 +53,11 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
-                            
+
 </template>
 
 <script>
@@ -85,9 +85,9 @@ export default {
 
     components: {
         PaginationComponent,
-        VenueListing, 
+        VenueListing,
     },
-    
+
     mixins:[
         mixinsFilters
     ],
@@ -102,13 +102,13 @@ export default {
             moment           : moment,
             date_range       : [],
             f_price          : '',
-            
+
             // filters
             f_category       : 'All',
             f_search         : '',
 
             // filter by location
-            f_city           : 'All', 
+            f_city           : 'All',
             f_state          : 'All',
             f_country        : 'All',
             countries        :  [],
@@ -168,16 +168,16 @@ export default {
 
             filter_toggle: false,
         }
-        
+
     },
     watch: {
         '$route' (to, from) {
-            this.debouncedgGetEvents();    
+            this.debouncedgGetEvents();
         },
-    
+
         // filters
 
-        // searching f_category 
+        // searching f_category
         f_category: function () {
             if(this.f_category)
             {
@@ -189,10 +189,10 @@ export default {
                 delete query.category;
                 this.$router.replace({ query });
             }
-            
+
         },
 
-        // seraching by f_search 
+        // seraching by f_search
         f_search: function () {
             if(this.f_search)
             {
@@ -203,9 +203,9 @@ export default {
                 let query = Object.assign({}, this.$route.query);
                 delete query.search;
                 this.$router.replace({ query });
-            }    
+            }
         },
-        // searching by date 
+        // searching by date
         date_range: function () {
             var is_date_null = true;
             if(this.date_range)
@@ -217,12 +217,12 @@ export default {
 
                         if(key == 0)
                             this.f_start_date   =  this.convert_date(value); // convert local start_date to server date then searching by date
-                        
+
                         if(key == 1)
                             this.f_end_date     =  this.convert_date(value); // convert local end_date to server date then searching by date
                     }
                 }.bind(this));
-                
+
                 if(is_date_null == false) {
                     this.$router.push({ query: Object.assign({}, this.$route.query, { start_date: this.f_start_date, page: 1  }) }).catch(()=>{});
                     this.$router.push({ query: Object.assign({}, this.$route.query, { end_date: this.f_end_date, page: 1  }) }).catch(()=>{});
@@ -236,23 +236,23 @@ export default {
                 }
             }
         },
-        // searching by f_price 
+        // searching by f_price
         f_price: function() {
             if(this.f_price)
             {
                 this.$router.push({ query: Object.assign({}, this.$route.query, { price: this.f_price, page: 1  }) }).catch(()=>{});
-                
+
             }
             else
             {
                 let query = Object.assign({}, this.$route.query);
                 delete query.price;
                 this.$router.replace({ query });
-            }  
+            }
         },
-        // seraching by f_city 
+        // seraching by f_city
         f_city: function () {
-            
+
             if(this.f_city)
             {
                 this.$router.push({ query: Object.assign({}, this.$route.query, { city: this.f_city, page: 1  }) }).catch(()=>{});
@@ -262,10 +262,10 @@ export default {
                 let query = Object.assign({}, this.$route.query);
                 delete query.city;
                 this.$router.replace({ query });
-            }    
+            }
         },
 
-        // seraching by f_state 
+        // seraching by f_state
         f_state: function () {
             if(this.f_state)
             {
@@ -276,12 +276,12 @@ export default {
                 let query = Object.assign({}, this.$route.query);
                 delete query.state;
                 this.$router.replace({ query });
-            }    
+            }
         },
 
-        // searching f_country 
+        // searching f_country
         f_country: function () {
-        
+
             if(this.f_country)
             {
                 let _this = this;
@@ -290,14 +290,14 @@ export default {
                     _this.f_city = 'All';
 
                 if(Object.entries(_this.countries).length > 0){
-                    
-                    let c     = Object.entries(_this.countries).find(obj => obj.city == _this.f_city); 
-                    
+
+                    let c     = Object.entries(_this.countries).find(obj => obj.city == _this.f_city);
+
                     if(c == undefined)
                         _this.f_city = 'All';
-                
-                }   
-                    
+
+                }
+
                 this.$router.push({ query: Object.assign({}, this.$route.query, { country: this.f_country, page: 1  }) }).catch(()=>{});
             }
             else
@@ -310,30 +310,30 @@ export default {
 
         },
     },
-    
+
     computed: {
         current_page() {
             // get page from route
             if(typeof this.page === "undefined")
                 return 1;
-            
+
             return this.page;
         },
     },
     methods: {
         checkEvents() {
-       
+
         },
         // get all venues
         getVenue() {
-            
+
             if(typeof this.f_start_date === "undefined") {
                 this.f_start_date     = '';
             }
             if(typeof this.f_end_date === "undefined") {
                 this.f_end_date     = '';
             }
-            
+
             axios.get(route('eventmie.venues.index')+'?page='+this.current_page+'&category='+encodeURIComponent(this.f_category)+'&search='+this.f_search+'&start_date='
                         +this.f_start_date+'&end_date='+this.f_end_date+'&price='+this.f_price+'&city='+this.f_city+'&state='+this.f_state+'&country='+encodeURIComponent(this.f_country))
             .then(res => {
@@ -352,10 +352,10 @@ export default {
                 this.states    = res.data.venues.states,
                 this.cities    = res.data.venues.cities
                 // venues sorting funtion
-                
+
             })
             .catch(error => {
-                
+
             });
         },
 
@@ -365,16 +365,16 @@ export default {
             .then(res => {
                 if(res.status)
                    this.categories  = res.data.categories;
-                
+
             })
             .catch(error => {
-                
+
             });
         },
 
         // serch event with 5 delay
         debouncedgGetEvents: _.debounce(function() {
-            this.getVenue()     
+            this.getVenue()
         }, 1000),
 
         // reset searching fields
@@ -391,15 +391,15 @@ export default {
             this.f_country       = 'All';
         },
 
-      
+
 
         // set query string if have query string when page refresh
         setQueryString(){
-            
+
             //set serarch
             this.f_search   = (typeof this.search !== 'undefined') ? decodeURIComponent(this.search) : '';
 
-            // get category of title from welcome page's categories 
+            // get category of title from welcome page's categories
             this.f_category = this.category ? decodeURIComponent(this.category).replace(/\+/g, " ") : 'All';
 
             // set price
@@ -411,29 +411,29 @@ export default {
              // set state
             this.f_state     = (typeof this.state !== 'undefined') ? decodeURIComponent(this.state) : 'All';
 
-            // set country 
+            // set country
             this.f_country   = this.country ? decodeURIComponent(this.country).replace(/\+/g, " ") : 'All';
 
             // set date
             if((typeof this.start_date !== 'undefined') && (typeof this.end_date !== 'undefined' )){
-                
+
                 this.date_range   = [this.setDateTime(this.start_date), this.setDateTime(this.end_date) ];
-            
+
                 this.f_start_date = this.start_date;
-                this.f_end_date   = this.end_date; 
-            }     
-            
+                this.f_end_date   = this.end_date;
+            }
+
              if(this.f_search != '' || this.f_city != 'All' || this.f_country != 'All' )
                 this.filter_toggle = true;
-            
-        }   
-        
+
+        }
+
     },
     mounted() {
         this.setQueryString();
         this.getVenue();
         this.getCategories();
-        
+
     }
 }
 </script>
