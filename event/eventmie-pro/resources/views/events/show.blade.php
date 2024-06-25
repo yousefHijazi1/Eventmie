@@ -299,7 +299,7 @@
                                     @endif
 
                                     @if ($event->venues->isNotEmpty())
-                                        <a class="col-white"
+                                        <a class="col-white text-danger"
                                             href="{{ route('eventmie.venues.show', [$event->venues[0]->slug]) }}"><strong>{{ $event->venue }}
                                                 <i class="fas fa-external-link-alt"></i></strong> </a>
                                     @else

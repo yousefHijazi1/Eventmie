@@ -43,7 +43,7 @@
                                         , changeTimeFormat(userTimezone1(moment(schedules[index].to_date).format('YYYY-MM')+'-'+selected_date+' '+schedules[index].to_time, 'YYYY-MM-DD HH:mm:ss').format('HH:mm:ss')) )
                                         : null">
                                     <h6 class="mb-0 h6 fw-bold">{{ userTimezone1(dateToShortDate(selected_date+' '+schedules[index].from_time, schedules[index].from_date), date_format.vue_date_format).format(date_format.vue_date_format) }}</h6>
-                                    <span class="badge bg-light text-primary">{{ changeTimeFormat(userTimezone1(moment(schedules[index].from_date).format('YYYY-MM')+'-'+selected_date+' '+schedules[index].from_time, 'YYYY-MM-DD HH:mm:ss').format('HH:mm:ss')) }} -
+                                    <span class="badge bg-light text-success">{{ changeTimeFormat(userTimezone1(moment(schedules[index].from_date).format('YYYY-MM')+'-'+selected_date+' '+schedules[index].from_time, 'YYYY-MM-DD HH:mm:ss').format('HH:mm:ss')) }} -
 
                                         {{ changeTimeFormat(userTimezone1(moment(schedules[index].to_date).format('YYYY-MM')+'-'+selected_date+' '+schedules[index].to_time, 'YYYY-MM-DD HH:mm:ss').format('HH:mm:ss')) }}
 
@@ -97,7 +97,7 @@
                                         , changeTimeFormat(userTimezone(moment(schedules[index].to_date).format('YYYY-MM')+'-'+selected_date+' '+schedules[index].to_time, 'YYYY-MM-DD HH:mm:ss').format('HH:mm:ss')) )
                                         : null">
                                     <h6 class="mb-0 h6 fw-bold">{{ userTimezone(dateToShortDate(selected_date+' '+schedules[index].from_time, schedules[index].from_date), date_format.vue_date_format).format(date_format.vue_date_format) }}</h6>
-                                    <span class="badge bg-light text-primary">{{ changeTimeFormat(userTimezone(moment(schedules[index].from_date).format('YYYY-MM')+'-'+selected_date+' '+schedules[index].from_time, 'YYYY-MM-DD HH:mm:ss').format('HH:mm:ss')) }} -
+                                    <span class="badge bg-light text-success">{{ changeTimeFormat(userTimezone(moment(schedules[index].from_date).format('YYYY-MM')+'-'+selected_date+' '+schedules[index].from_time, 'YYYY-MM-DD HH:mm:ss').format('HH:mm:ss')) }} -
 
                                         {{ changeTimeFormat(userTimezone(moment(schedules[index].to_date).format('YYYY-MM')+'-'+selected_date+' '+schedules[index].to_time, 'YYYY-MM-DD HH:mm:ss').format('HH:mm:ss')) }}
 
@@ -283,7 +283,7 @@
                                     ? singleEvent() : null"
                                 >
                                     <h6 class="mb-0 h6 fw-bold">{{ convert_date_to_local_format(userTimezone(event.start_date+' '+event.start_time, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD') ) }} - {{ ( userTimezone(event.start_date+' '+event.start_time, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD') <= userTimezone(event.end_date+' '+event.end_time, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD') )  ? convert_date_to_local_format(userTimezone(event.end_date+' '+event.end_time, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD') ) : convert_date_to_local_format(userTimezone(event.start_date+' '+event.start_time, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD') ) }}</h6>
-                                    <span class="badge bg-light text-primary">{{ userTimezone(event.start_date+' '+event.start_time, 'YYYY-MM-DD HH:mm:ss').format(date_format.vue_time_format) }} - {{ userTimezone(event.end_date+' '+event.end_time, 'YYYY-MM-DD HH:mm:ss').format(date_format.vue_time_format) }} {{ showTimezone() }}</span>
+                                    <span class="badge bg-light text-success">{{ userTimezone(event.start_date+' '+event.start_time, 'YYYY-MM-DD HH:mm:ss').format(date_format.vue_time_format) }} - {{ userTimezone(event.end_date+' '+event.end_time, 'YYYY-MM-DD HH:mm:ss').format(date_format.vue_time_format) }} {{ showTimezone() }}</span>
 
                                     <!-- expired -->
                                     <h4 class="mb-0 h6 badge bg-danger" v-if="moment(event.end_date +' '+event.end_time, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD HH:mm:ss') < moment().format('YYYY-MM-DD HH:mm:ss')"
