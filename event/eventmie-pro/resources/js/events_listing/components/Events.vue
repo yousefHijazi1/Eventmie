@@ -5,7 +5,7 @@
                 <div class="col-12">
                     <div class="d-flex justify-content-between align-items-center">
                         <h4 class="mb-0">
-                            <button type="button" class="btn btn-outline-warning btn-sm" @click="filter_toggle = !filter_toggle"><i class="fas fa-bars"></i></button> {{ trans('em.filters') }}
+                            <button type="button" class="btn btn-outline-secondary btn-sm" @click="filter_toggle = !filter_toggle"><i class="fas fa-bars"></i></button> {{ trans('em.filters') }}
                         </h4>
                         <div>
                             <button type="button" class="btn btn-outline-secondary btn-sm" @click="reset()"><i class="fas fa-redo"></i> {{ trans('em.reset_filters') }}</button>
