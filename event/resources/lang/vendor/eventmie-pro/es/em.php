@@ -579,7 +579,7 @@ return [
     'short_info'                      => 'Short Info',
     'customer_limit'                  => 'Customer Limit',
     'already_booked'                  => 'You have already booked this ticket!',
-    
+
     /* v1.7 lang */
     'customer_limit'          => 'Reservation limit per customer',
     'customer_limit_info'     => 'For how many times can the same customer buy this ticket. (leave blank for unlimited) ',
@@ -587,10 +587,10 @@ return [
     'offline_payment_info'    => 'Offline payment instructions',
     'offline_payment_info_ie' => 'Instructions to display in the offline payment option',
     'expired'                 => 'Expirar',
-    
+
     'rsvp'                    => 'R.S.V.P',
-    
-    'accept_terms'            => 'By clicking "Register", I accept the <a href="'.route('eventmie.page', ['page'=>'terms']).'" target="_blank">Terms of Service</a> and have read the <a href="'.route('eventmie.page', ['page'=>'privacy']).'" target="_blank">Privacy Policy</a>. I agree that '.config('app.name').' may share my information with event organizers.',
+
+    'accept_terms'            => 'By clicking "Register", I accept the <a href="'.route('eventmie.page', ['page'=>'terms']).'" target="_blank">Terms of Service</a> and have read the <a href="'.route('eventmie.page', ['page'=>'privacy']).'" target="_blank">Privacy Policy</a>.',
     'order_terms'             => 'This order is subject to '.config('app.name').' <a href="'.route('eventmie.page', ['page'=>'terms']).'" target="_blank">Terms of Service</a> and <a href="'.route('eventmie.page', ['page'=>'privacy']).'" target="_blank">Privacy Policy</a>.',
 
     'incorrect_email_password' => 'Correo o contraseña incorrectos',
@@ -689,6 +689,6 @@ return [
 'venue_image_label'                 => "Actualizar imágenes únicas/múltiples del lugar",
 'show_tax_info'                     => "Mostrar información fiscal",
 'hide_tax_info'                     => "Ocultar información fiscal",
-    
+
 ];
 

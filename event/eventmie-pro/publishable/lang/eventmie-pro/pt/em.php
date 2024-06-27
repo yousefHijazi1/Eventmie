@@ -582,11 +582,11 @@ return [
     'offline_payment_info'            => 'Instruções de pagamento offline',
     'offline_payment_info_ie'         => 'Instruções para mostrar na opção de pagamento offline',
     'expired'                         => 'Expirado',
-    
+
     'rsvp'                    => 'R.S.V.P',
-    
-    'accept_terms'            => 'By clicking "Register", I accept the <a href="'.route('eventmie.page', ['page'=>'terms']).'" target="_blank">Terms of Service</a> and have read the <a href="'.route('eventmie.page', ['page'=>'privacy']).'" target="_blank">Privacy Policy</a>. I agree that '.config('app.name').' may share my information with event organizers.',
-    'order_terms'             => 'This order is subject to '.config('app.name').' <a href="'.route('eventmie.page', ['page'=>'terms']).'" target="_blank">Terms of Service</a> and <a href="'.route('eventmie.page', ['page'=>'privacy']).'" target="_blank">Privacy Policy</a>.',    
+
+    'accept_terms'            => 'By clicking "Register", I accept the <a href="'.route('eventmie.page', ['page'=>'terms']).'" target="_blank">Terms of Service</a> and have read the <a href="'.route('eventmie.page', ['page'=>'privacy']).'" target="_blank">Privacy Policy</a>.',
+    'order_terms'             => 'This order is subject to '.config('app.name').' <a href="'.route('eventmie.page', ['page'=>'terms']).'" target="_blank">Terms of Service</a> and <a href="'.route('eventmie.page', ['page'=>'privacy']).'" target="_blank">Privacy Policy</a>.',
 
     'incorrect_email_password' => 'Senha ou email incorretos',
 

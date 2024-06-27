@@ -21155,11 +21155,11 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 a {
-    color: #0d6efd;
+    color: #ffc107;
     text-decoration: none;
 }
 a:hover {
-    color: #0a58ca;
+    color: #ebb411;
 }
 .blockquote-left {
     border-left: 4px solid #2176ff;
@@ -24145,7 +24145,7 @@ fieldset[disabled] .multiselect {
     padding: 1rem;
 }
 .Cookie__button {
-    background: linear-gradient(0deg, #2176ff, #212425) !important;
+    background: linear-gradient(0deg, #ffc107, #212425) !important;
     border: none;
     border-radius: 5px;
     color: #fff;

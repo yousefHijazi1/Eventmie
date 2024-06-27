@@ -602,10 +602,10 @@ return [
     'offline_payment_info'    => 'ऑफ़लाइन भुगतान निर्देश',
     'offline_payment_info_ie' => 'ऑफ़लाइन भुगतान विकल्प के तहत दिखाने के निर्देश',
     'expired'                 => 'समय सीमा समाप्त',
-    
+
     'rsvp'                    => 'R.S.V.P',
-    
-    'accept_terms'            => 'By clicking "Register", I accept the <a href="'.route('eventmie.page', ['page'=>'terms']).'" target="_blank">Terms of Service</a> and have read the <a href="'.route('eventmie.page', ['page'=>'privacy']).'" target="_blank">Privacy Policy</a>. I agree that '.config('app.name').' may share my information with event organizers.',
+
+    'accept_terms'            => 'By clicking "Register", I accept the <a href="'.route('eventmie.page', ['page'=>'terms']).'" target="_blank">Terms of Service</a> and have read the <a href="'.route('eventmie.page', ['page'=>'privacy']).'" target="_blank">Privacy Policy</a>.',
     'order_terms'             => 'This order is subject to '.config('app.name').' <a href="'.route('eventmie.page', ['page'=>'terms']).'" target="_blank">Terms of Service</a> and <a href="'.route('eventmie.page', ['page'=>'privacy']).'" target="_blank">Privacy Policy</a>.',
 
     'incorrect_email_password' => 'गलत ई - मेल और पासवर्ड',

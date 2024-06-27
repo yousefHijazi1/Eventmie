@@ -1,6 +1,6 @@
 <template>
     <div>
-        {{ trans('em.accept_cookie') }} <a :href="getRoute('eventmie.page')">{{ trans('em.privacy') }}</a>
+        {{ trans('em.accept_cookie') }} <a :href="getRoute('eventmie.page')" > {{ trans('em.privacy') }} </a>
     </div>
 </template>
 

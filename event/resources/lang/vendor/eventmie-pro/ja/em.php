@@ -373,15 +373,15 @@ return [
     'pm'                                => 'PM',
     /* Calendar lang end*/
 
-    'online'                           => "オンライン", 
-    'online_secret'                    => "オンラインイベントの秘密の詳細（プライベートURL パスワードなど）を入力してください。これは, チケット購入後にのみ顧客に表示されます。", 
-    'access'                           => "アクセス", 
-    'ask_saved_changes'                => "変更を保存しましたか？", 
-    'save_before_switch'               => "タブを切り替える前に変更を保存してください。", 
-    'left'                             => "左", 
-    'show'                             => "公演", 
-    'hide'                             => "隠す", 
-    'unpaid'                           => "未払い", 
+    'online'                           => "オンライン",
+    'online_secret'                    => "オンラインイベントの秘密の詳細（プライベートURL パスワードなど）を入力してください。これは, チケット購入後にのみ顧客に表示されます。",
+    'access'                           => "アクセス",
+    'ask_saved_changes'                => "変更を保存しましたか？",
+    'save_before_switch'               => "タブを切り替える前に変更を保存してください。",
+    'left'                             => "左",
+    'show'                             => "公演",
+    'hide'                             => "隠す",
+    'unpaid'                           => "未払い",
 
     // v1.5 lang
     'max_ticket_qty'                    => "最大チケット数量制限",
@@ -601,10 +601,10 @@ return [
     'offline_payment_info'    => "オフライン支払い手順",
     'offline_payment_info_ie' => "オフライン支払いオプションの下に表示する手順",
     'expired'                 => '期限切れ',
-    
+
     'rsvp'                    => 'R.S.V.P',
-    
-    'accept_terms'            => 'By clicking "Register", I accept the <a href="'.route('eventmie.page', ['page'=>'terms']).'" target="_blank">Terms of Service</a> and have read the <a href="'.route('eventmie.page', ['page'=>'privacy']).'" target="_blank">Privacy Policy</a>. I agree that '.config('app.name').' may share my information with event organizers.',
+
+    'accept_terms'            => 'By clicking "Register", I accept the <a href="'.route('eventmie.page', ['page'=>'terms']).'" target="_blank">Terms of Service</a> and have read the <a href="'.route('eventmie.page', ['page'=>'privacy']).'" target="_blank">Privacy Policy</a>.',
     'order_terms'             => 'This order is subject to '.config('app.name').' <a href="'.route('eventmie.page', ['page'=>'terms']).'" target="_blank">Terms of Service</a> and <a href="'.route('eventmie.page', ['page'=>'privacy']).'" target="_blank">Privacy Policy</a>.',
 
     'incorrect_email_password' => '間違ったメールアドレスまたはパスワード',
