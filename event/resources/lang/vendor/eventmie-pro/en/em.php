@@ -735,6 +735,7 @@ return [
     'twitter'                           => 'Twitter',
     'instagram'                         => 'Instagram',
     'linkedin'                          => 'Linkedin',
+    'Tiktok'                            => 'Tiktok',
     'ticket_scan_error'                 => 'Cannot Scan Ticket Before event started',
     'organiser_by'                      => 'Organiser by',
     'view_profile'                      => 'View Profile',

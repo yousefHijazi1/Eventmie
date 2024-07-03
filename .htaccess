@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+     # Redirect www to non-www
+    RewriteCond %{HTTP_HOST} ^www\.abproevents\.com [NC]
+    RewriteRule ^(.*)$ http://abproevents.com/$1 [L,R=301]
+    
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect to public directory
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>

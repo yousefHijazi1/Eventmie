@@ -69,10 +69,10 @@
 
                                         <i class="fab fa-twitter"></i>
                                     </a>
-                                    <a class="me-1 text-white  badge text-bg-secondary" target="_blank"
+                                    {{-- <a class="me-1 text-white  badge text-bg-secondary" target="_blank"
                                         href="http://www.linkedin.com/shareArticle?mini=true&url={{ url()->current() }}&title={{ urlencode($event->title) }}">
-                                        <i class="fab fa-linkedin"></i>
-                                    </a>
+                                        <i class="fab fa-tiktok"></i>
+                                    </a> --}}
                                     <a class="me-1 text-white  badge text-bg-secondary" target="_blank"
                                         href="https://wa.me/?text={{ url()->current() }}">
                                         <i class="fab fa-whatsapp"></i>

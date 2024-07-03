@@ -36,9 +36,13 @@
                             <li><a href="{{ setting('social.instagram') }}" target="_blank"
                                     class="text-white lh-lg">@lang('eventmie-pro::em.instagram')</a>
                         @endif
-                        @if (setting('social.linkedin'))
+                        {{-- @if (setting('social.linkedin'))
                             <li><a href="{{ setting('social.linkedin') }}" target="_blank"
                                     class="text-white lh-lg">@lang('eventmie-pro::em.linkedin')</a>
+                        @endif --}}
+                        @if (setting('social.linkedin'))
+                            <li><a href="{{ setting('social.linkedin') }}" target="_blank"
+                                    class="text-white lh-lg">@lang('eventmie-pro::em.Tiktok')</a>
                         @endif
                     </ul>
                 </div>
